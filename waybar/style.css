@@ -1,13 +1,13 @@
 window#waybar {
     background: rgba(0, 0, 0, 0);
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #workspaces {
 	background: rgba(50, 50, 50, 1);
 	color: #FFFFFF;
 	border-radius: 15px;
-	border: solid rgba(0, 255, 130, 1) 2px;
+	border: solid rgba(255, 255, 255, 1) 2px;
 }
 
 #workspaces button {
@@ -21,7 +21,7 @@ window#waybar {
 	background: rgba(50, 50, 50, 1);
 	color: white;
 	border-radius: 15px;
-	border: solid rgba(0, 255, 130, 1) 2px;
+	border: solid rgba(255, 255, 255, 1) 2px;
 	padding: 0 8px;
 }
 
@@ -29,7 +29,7 @@ window#waybar {
 	background: rgba(50, 50, 50, 1);
 	color: white;
 	border-radius: 15px;
-	border: solid rgba(0, 255, 130, 1) 2px;
+	border: solid rgba(255, 255, 255, 1) 2px;
 	padding: 0 8px;
 }
 
@@ -37,6 +37,6 @@ window#waybar {
 	background: rgba(50, 50, 50, 1);
 	color: white;
 	border-radius: 15px;
-	border: solid rgba(0, 255, 130, 1) 2px;
+	border: solid rgba(255, 255, 255, 1) 2px;
 	padding: 0 8px;
 }
