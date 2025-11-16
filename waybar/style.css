@@ -25,6 +25,14 @@ window#waybar {
 	padding: 0 8px;
 }
 
+#pulseaudio {
+	background: rgba(50, 50, 50, 1);
+	color: white;
+	border-radius: 8px;
+	border: solid rgba(30, 255, 190, 1) 2px;
+	padding: 0 8px;
+}
+
 #tray {
 	background: rgba(50, 50, 50, 1);
 	color: white;
