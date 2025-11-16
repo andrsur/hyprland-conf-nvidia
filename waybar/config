@@ -1,0 +1,38 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 5,
+    "margin-bottom": 0,
+    "margin-left": 5,
+    "margin-right": 5,
+    "height": 25,
+    "width": "95%",
+    "spacing": 4,
+    
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray"],
+
+     "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "●",
+            "default": "○",
+            "urgent": "!"
+   	}
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d.%m.%Y}"
+    	}
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 20,
+	"margin-left": 8,
+	"margin-right": 8
+    }
+}
+
