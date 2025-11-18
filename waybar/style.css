@@ -1,42 +1,42 @@
 window#waybar {
     background: rgba(0, 0, 0, 0);
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #workspaces {
 	background: rgba(50, 50, 50, 1);
 	color: #FFFFFF;
-	border-radius: 15px;
-	border: solid rgba(255, 255, 255, 1) 2px;
+	border-radius: 10px;
+	border: solid rgba(255, 160, 0, 1) 2px;
 }
 
 #workspaces button {
 	color: white;
 	padding: 0 8px;
 	background: transparent;
-	border-radius: 15px;
+	border-radius: 10px;
 }
 
 #clock {
 	background: rgba(50, 50, 50, 1);
 	color: white;
-	border-radius: 15px;
-	border: solid rgba(255, 255, 255, 1) 2px;
+	border-radius: 10px;
+	border: solid rgba(255, 160, 0, 1) 2px;
 	padding: 0 8px;
 }
 
 #pulseaudio {
 	background: rgba(50, 50, 50, 1);
 	color: white;
-	border-radius: 15px;
-	border: solid rgba(255, 255, 255, 1) 2px;
+	border-radius: 10px;
+	border: solid rgba(255, 160, 0, 1) 2px;
 	padding: 0 8px;
 }
 
 #tray {
 	background: rgba(50, 50, 50, 1);
 	color: white;
-	border-radius: 15px;
-	border: solid rgba(255, 255, 255, 1) 2px;
+	border-radius: 10px;
+	border: solid rgba(255, 160, 0, 1) 2px;
 	padding: 0 8px;
 }
