@@ -1,10 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 5,
+    "margin-top": 0,
     "margin-bottom": 0,
-    "margin-left": 5,
-    "margin-right": 5,
+    "margin-left": 0,
+    "margin-right": 0,
     "height": 25,
     "width": "95%",
     "spacing": 4,
@@ -18,8 +18,8 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "active": "●",
-            "default": "○",
+            "active": "[-]",
+            "default": "[_]",
             "urgent": "!"
    	}
     },
