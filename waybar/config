@@ -19,9 +19,9 @@
     },
     "tray": {
         "icon-size": 18,
-        "spacing": 20,
-        "margin-left": 8,
-        "margin-right": 8
+        "spacing": 8,
+        "margin-left": 4,
+        "margin-right": 4
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
