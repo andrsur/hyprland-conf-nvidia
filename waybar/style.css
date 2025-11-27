@@ -1,14 +1,14 @@
 window#waybar {
-    background: rgba(50, 50, 50, 0);
+    background: rgba(60, 56, 54, 1);
     border-radius: 5px;
-    border: solid lightgreen 0px;
+    border: solid rgba(142, 192, 124, 1) 2px;
 }
 
 #workspaces {
-	background: rgba(50, 50, 50, 1);
+	background: rgba(60, 70, 60, 0);
 	color: #FFFFFF;
 	border-radius: 5px;
-	/*border: solid lightgreen 1px;*/
+	border: solid lightgreen 0px;
 }
 
 #workspaces button {
@@ -19,7 +19,7 @@ window#waybar {
 }
 
 #clock {
-	background: rgba(50, 50, 50, 1);
+	background: rgba(50, 50, 50, 0);
 	color: white;
 	border-radius: 5px;
 	/*border: solid lightgreen 1px;*/
@@ -27,7 +27,7 @@ window#waybar {
 }
 
 #pulseaudio {
-	background: rgba(50, 50, 50, 1);
+	background: rgba(50, 50, 50, 0);
 	color: white;
 	border-radius: 5px;
 	/*border: solid lightgreen 1px;*/
@@ -35,9 +35,9 @@ window#waybar {
 }
 
 #tray {
-	background: rgba(50, 50, 50, 1);
+	background: rgba(142, 192, 124, 0.4);
 	color: white;
-	border-radius: 5px;
+	border-radius: 0px;
 	/*border: solid lightgreen 1px;*/
 	padding: 0 8px;
 }

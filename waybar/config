@@ -7,40 +7,38 @@
     "margin-right": 5,
     "height": 25,
     "width": "95%",
-    "spacing": 4,
+    "spacing": 2,
     
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "tray"],
+    "modules-left": ["clock"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "pulseaudio"],
 
-     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-            "active": "[-]",
-            "default": "[_]",
-            "urgent": "!"
-   	}
-    },
     "clock": {
         "format": "{:%H:%M}",
         "format-alt": "{:%d.%m.%Y}"
-    	}
     },
     "tray": {
         "icon-size": 18,
         "spacing": 20,
-	"margin-left": 8,
-	"margin-right": 8
+        "margin-left": 8,
+        "margin-right": 8
     },
     "pulseaudio": {
-    	"format": "{volume}% {icon}",
-    	"format-muted": "X Muted",
-    	"format-icons": ["<", "<||", "<|||"],
-    	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    	"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-    	"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "format": "{volume}% {icon}",
+        "format-muted": "X Muted",
+        "format-icons": ["<", "<||", "<|||"],
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "○",
+            "default": "•",
+            "urgent": "!"
+   	}
     }
 }
-
