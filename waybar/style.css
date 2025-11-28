@@ -1,7 +1,7 @@
 window#waybar {
     background: rgba(60, 56, 54, 1);
     border-radius: 5px;
-    border: solid rgba(142, 192, 124, 1) 2px;
+    border: solid rgba(142, 192, 124, 1) 1px;
 }
 
 #workspaces {
