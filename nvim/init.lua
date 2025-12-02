@@ -62,7 +62,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "c", "cpp", "rust" },
+        ensure_installed = { "c", "cpp", "rust", "go" },
         highlight = { enable = true },
       })
     end
@@ -97,10 +97,15 @@ require("lazy").setup({
       })
 
       -- Базовые LSP привязки клавиш
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = "Go to definition"})
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = "Hover documentation"})
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, {desc = "Find references"})
-      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {desc = "Rename symbol"})
+      local on_attach = function(client, bufnr)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code actions" })
+      end
+
+      -- НЕ запускаем LSP серверы глобально здесь - только через автокоманды ниже
     end
   },
 })
@@ -115,7 +120,7 @@ vim.api.nvim_create_autocmd("FileType", {
     local bufnr = args.buf
     
     -- Запускаем rust-analyzer только для Rust файлов
-    require('vim.lsp').start({
+    vim.lsp.start({
       name = 'rust-analyzer',
       cmd = {'rust-analyzer'},
       bufnr = bufnr,
@@ -125,7 +130,14 @@ vim.api.nvim_create_autocmd("FileType", {
             command = "clippy",
           },
         }
-      }
+      },
+      on_attach = function(client, bufnr)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code actions" })
+      end
     })
   end
 })
@@ -136,11 +148,66 @@ vim.api.nvim_create_autocmd("FileType", {
     local bufnr = args.buf
     
     -- Запускаем clangd только для C/C++ файлов
-    require('vim.lsp').start({
+    vim.lsp.start({
       name = 'clangd',
       cmd = {'clangd'},
       bufnr = bufnr,
+      on_attach = function(client, bufnr)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code actions" })
+      end
     })
+  end
+})
+
+-- Добавляем поддержку Go
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"go"},
+  callback = function(args)
+    local bufnr = args.buf
+    
+    -- Запускаем gopls для Go файлов
+    vim.lsp.start({
+      name = 'gopls',
+      cmd = {'gopls'},
+      bufnr = bufnr,
+      settings = {
+        gopls = {
+          analyses = {
+            unusedparams = true,
+          },
+          staticcheck = true,
+          gofumpt = true,
+        },
+      },
+      on_attach = function(client, bufnr)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "Find references" })
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code actions" })
+      end
+    })
+  end
+})
+
+-- Дополнительные настройки для Go
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    -- Настройки форматирования для Go
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+    
+    -- Горячие клавиши для Go
+    vim.keymap.set('n', '<leader>gf', '<cmd>!go fmt<CR>', { buffer = true, desc = "Go format" })
+    vim.keymap.set('n', '<leader>gt', '<cmd>!go test<CR>', { buffer = true, desc = "Go test" })
+    vim.keymap.set('n', '<leader>gr', '<cmd>!go run .<CR>', { buffer = true, desc = "Go run" })
+    vim.keymap.set('n', '<leader>gb', '<cmd>!go build<CR>', { buffer = true, desc = "Go build" })
   end
 })
 

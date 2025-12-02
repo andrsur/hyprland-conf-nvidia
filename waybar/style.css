@@ -1,7 +1,7 @@
 window#waybar {
     background: rgba(60, 56, 54, 1);
-    border-radius: 5px;
-    border: solid rgba(142, 192, 124, 1) 1px;
+    border-radius: 0;
+    border: solid rgba(142, 192, 124, 1) 0px;
 }
 
 #workspaces {
@@ -15,29 +15,28 @@ window#waybar {
 	color: white;
 	padding: 0 8px;
 	background: transparent;
-	border-radius: 8px;
+	border-radius: 0px;
+    border-bottom: solid rgba(142, 192, 124, 1) 2px;
+}
+
+#workspaces button:hover {
+    background: rgba(142, 192, 124, 0.5);
 }
 
 #clock {
 	background: rgba(50, 50, 50, 0);
 	color: white;
-	border-radius: 5px;
+	border-radius: 0px;
+    border-bottom: solid rgba(142, 192, 124, 1) 2px;
 	/*border: solid lightgreen 1px;*/
 	padding: 0 8px;
 }
 
-#pulseaudio {
-	background: rgba(50, 50, 50, 0);
-	color: white;
-	border-radius: 5px;
-	/*border: solid lightgreen 1px;*/
-	padding: 0 8px;
-}
 
 #tray {
-	background: rgba(142, 192, 124, 0.4);
 	color: white;
 	border-radius: 0px;
+    border-bottom: solid rgba(142, 192, 124, 1) 2px;
 	/*border: solid lightgreen 1px;*/
 	padding: 0 8px;
 }
